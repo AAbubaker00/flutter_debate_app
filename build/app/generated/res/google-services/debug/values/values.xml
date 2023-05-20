@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">337177883434-ajhm9ukfc340l0jenijce61fhe4asf4s.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">337177883434</string>
+    <string name="google_api_key" translatable="false">AIzaSyB6j9-B2pJuV9oL4IUo9EHv0fZ4yoCAh2I</string>
+    <string name="google_app_id" translatable="false">1:337177883434:android:9cc00859c610a5c90b2453</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyB6j9-B2pJuV9oL4IUo9EHv0fZ4yoCAh2I</string>
+    <string name="google_storage_bucket" translatable="false">debate-e6e82.appspot.com</string>
+    <string name="project_id" translatable="false">debate-e6e82</string>
+</resources>
