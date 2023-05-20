@@ -33,7 +33,7 @@ class _WrapperState extends State<Wrapper> {
     timer.cancel();
   }
 
-  //hi
+  //why would i 
 
   @override
   void initState() {
@@ -42,6 +42,7 @@ class _WrapperState extends State<Wrapper> {
 
     _pages = [
       StreamProvider<QuerySnapshot?>.value(
+        
           initialData: null,
           value: DatabaseService(uid: _auth.currentUser!.uid).topicFollowing,
           builder: (context, snapshot) {
