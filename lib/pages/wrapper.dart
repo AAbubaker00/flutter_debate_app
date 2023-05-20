@@ -123,8 +123,6 @@ class _WrapperState extends State<Wrapper> {
       return Loading();
     } else {
       timer.cancel();
-      //its not showing 
-      //hi
 
       return Container(
         color: summaryColour,
