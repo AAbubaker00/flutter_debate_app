@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class Profile extends StatefulWidget {
@@ -7,10 +8,15 @@ class Profile extends StatefulWidget {
   State<Profile> createState() => _ProfileState();
 }
 
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
 class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(_auth.currentUser!.displayName.toString()),
+      ),
       body: Column(
         children: [
           Padding(
