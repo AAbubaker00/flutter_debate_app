@@ -20,7 +20,7 @@ class _ProfileState extends State<Profile> {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 50.0, left: 20, right: 20),
+            padding: const EdgeInsets.only(top: 50.0, left: 30, right: 20),
             child: Row(
               children: [
                 const CircleAvatar(
