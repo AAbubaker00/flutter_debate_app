@@ -56,7 +56,7 @@ class DatabaseService {
 
   Stream<QuerySnapshot>? get userFollowings {
     try {
-      return userCollection.doc(uid).collection('following').snapshots().;
+      return userCollection.doc(uid).collection('following').snapshots();
     } catch (e) {
       PrintFunctions().printError('userFollowings: $e');
       return null;
