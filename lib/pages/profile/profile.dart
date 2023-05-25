@@ -11,6 +11,8 @@ class Profile extends StatefulWidget {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
 class _ProfileState extends State<Profile> {
+
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(

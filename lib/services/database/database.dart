@@ -54,6 +54,26 @@ class DatabaseService {
 
   //                                                                        //
 
+  Stream<QuerySnapshot>? get userFollowings {
+    try {
+      return userCollection.doc(uid).collection('following').snapshots().;
+    } catch (e) {
+      PrintFunctions().printError('userFollowings: $e');
+      return null;
+    }
+  }
+
+  Stream<QuerySnapshot>? get userFollowers {
+    try {
+      return userCollection.doc(uid).collection('followers').snapshots();
+    } catch (e) {
+      PrintFunctions().printError('userFollowers: $e');
+      return null;
+    }
+  }
+
+  //                                                                        //
+
   Stream<QuerySnapshot>? get feed {
     try {
       // feedCollection.where((DocumentSnapshot snapshot) => snapshot.id)
