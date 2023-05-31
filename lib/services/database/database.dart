@@ -1,8 +1,11 @@
+import 'package:debate/models/topic/topics.dart';
 import 'package:debate/shared/printFunctions/custom_Print_Functions.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:debate/services/Network/network.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
+
+enum SIDES { userFor, userAgainst }
 
 class DatabaseService {
   final _auth = FirebaseAuth.instance;
@@ -27,9 +30,42 @@ class DatabaseService {
     }
   }
 
+  Future updateUserSide({required TopicObject topic, required SIDES side}) async {
+    try {
+      QuerySnapshot querySnapshot = await feedCollection.doc(topic.id).collection(side.name.toString()).get();
+
+      if (querySnapshot.docs.isEmpty) {
+        feedCollection.doc(topic.id).collection(side.name.toString()).doc(uid).set({});
+        return userCollection
+            .doc(uid)
+            .collection('sides')
+            .doc(topic.id)
+            .set(TopicObject().topicObjectToMapSide(topic: topic, side: side));
+      } else {
+        if (querySnapshot.docs.indexWhere((doc) => doc.id == uid) == -1) {
+          feedCollection.doc(topic.id).collection(side.name.toString()).doc(uid).set({});
+          return userCollection
+              .doc(uid)
+              .collection('sides')
+              .doc(topic.id)
+              .set(TopicObject().topicObjectToMapSide(topic: topic, side: side));
+        } else {
+          return 'Already Exist';
+        }
+      }
+    } catch (e) {
+      PrintFunctions().printError('updateUserSide: $e');
+      return null;
+    }
+  }
+
+  //                                                                        //
+
   getConnection() async {
     return await Network().getConnectionStatus();
   }
+
+  //                                                                        //
 
   //! get data
   Stream<DocumentSnapshot<Object?>>? get userPortfolioData {
@@ -71,6 +107,17 @@ class DatabaseService {
       return null;
     }
   }
+
+  Stream<QuerySnapshot>? get userDebates {
+    try {
+      return userCollection.doc(uid).collection('conversations').snapshots();
+    } catch (e) {
+      PrintFunctions().printError('userDebates: $e');
+      return null;
+    }
+  }
+
+  //                                                                        //
 
   //                                                                        //
 

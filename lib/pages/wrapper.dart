@@ -33,7 +33,6 @@ class _WrapperState extends State<Wrapper> {
     timer.cancel();
   }
 
-
   @override
   void initState() {
     super.initState();
@@ -41,7 +40,6 @@ class _WrapperState extends State<Wrapper> {
 
     _pages = [
       StreamProvider<QuerySnapshot?>.value(
-        
           initialData: null,
           value: DatabaseService(uid: _auth.currentUser!.uid).topicFollowing,
           builder: (context, snapshot) {
@@ -75,6 +73,18 @@ class _WrapperState extends State<Wrapper> {
               return Loading();
             }
           }),
+      StreamProvider<QuerySnapshot?>.value(
+          initialData: null,
+          value: DatabaseService(uid: _auth.currentUser!.uid).feed,
+          builder: (context, snapshot) {
+            QuerySnapshot? feed = Provider.of<QuerySnapshot?>(context);
+
+            if (feed != null) {
+              return Discover();
+            } else {
+              return Loading();
+            }
+          }),
       MultiStreamBuilder(
           streams: [DatabaseService().feed, DatabaseService(uid: _auth.currentUser!.uid).topicFollowing],
           builder: (context, dataList) {
@@ -87,11 +97,27 @@ class _WrapperState extends State<Wrapper> {
               return Loading();
             }
           }),
-      const Profile()
+      MultiStreamBuilder(
+          streams: [
+            DatabaseService(uid: _auth.currentUser!.uid).userDebates,
+            DatabaseService(uid: _auth.currentUser!.uid).userFollowers,
+            DatabaseService(uid: _auth.currentUser!.uid).userFollowings
+          ],
+          builder: (context, dataList) {
+            if (dataList[0] != null && dataList[1] != null && dataList[2] != null) {
+              return Profile(
+                debates: dataList[0]!,
+                followers: dataList[1]!,
+                following: dataList[2]!,
+              );
+            } else {
+              return Loading();
+            }
+          })
     ];
   }
 
-  int _selectedIndex = 2;
+  int _selectedIndex = 1;
   late List<Widget> _pages;
 
   void _onItemTapped(int index) {

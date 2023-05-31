@@ -1,28 +1,16 @@
 import 'package:debate/shared/themes/themes.dart';
 import 'package:flutter/material.dart';
 
+// ignore_for_file: annotate_overrides, overridden_fields, prefer_typing_uninitialized_variables, unnecessary_this
 // ignore: must_be_immutable
 class CustomInputDecoration extends InputDecoration {
   final String text;
   final BuildContext context;
 
-  var contentPadding;
-  var hintStyle;
-  var errorBorder;
-  var enabledBorder;
-  var disabledBorder;
-  var border;
-  var isDense;
-  var hintText;
-  var floatingLabelBehavior;
-  var isCollapsed;
-  var label;
-  var labelText;
-  var prefixIcon;
-  var fillColor;
-  var focusedBorder;
-  var filled;
-  var prefixIconConstraints;
+  var contentPadding, hintStyle, errorBorder, enabledBorder, disabledBorder, border, isDense;
+  var hintText, floatingLabelBehavior, isCollapsed, label, labelText, prefixIcon, fillColor;
+  var focusedBorder, filled, prefixIconConstraints;
+
   double radius;
 
   final double borderOpacity;
@@ -33,27 +21,20 @@ class CustomInputDecoration extends InputDecoration {
       this.contentPadding = const EdgeInsets.only(left: 15, top: 15, bottom: 15),
       this.radius = 50,
       this.fillColor = backgroundColour,
-       this.focusedBorderColor = blueVarient,
+      this.focusedBorderColor = blueVarient,
       this.borderOpacity = .7})
-      :
-        this.errorBorder = OutlineInputBorder(
-          borderSide: new BorderSide(color: redVarient),
-          borderRadius: new BorderRadius.circular(radius),
-        ),
+      : this.errorBorder = OutlineInputBorder(
+            borderSide: BorderSide(color: redVarient), borderRadius: BorderRadius.circular(radius)),
         this.focusedBorder = OutlineInputBorder(
-          borderSide: new BorderSide(color: focusedBorderColor),
-          borderRadius: new BorderRadius.circular(radius),
-        ),
+            borderSide: BorderSide(color: focusedBorderColor), borderRadius: BorderRadius.circular(radius)),
         this.enabledBorder = OutlineInputBorder(
-          borderSide: new BorderSide(color: seperator.withOpacity(borderOpacity), width: .7),
-          borderRadius: new BorderRadius.circular(radius),
-        ),
+            borderSide: BorderSide(color: seperator.withOpacity(borderOpacity), width: .7),
+            borderRadius: BorderRadius.circular(radius)),
         this.disabledBorder = InputBorder.none,
         this.border = OutlineInputBorder(
-          borderSide: new BorderSide(color: seperator),
-          borderRadius: new BorderRadius.circular(radius),
-        ),
-        this.prefixIconConstraints = BoxConstraints(minHeight: 27, minWidth: 27, maxHeight: 45, maxWidth: 45),
+            borderSide: BorderSide(color: seperator), borderRadius: BorderRadius.circular(radius)),
+        this.prefixIconConstraints =
+            const BoxConstraints(minHeight: 27, minWidth: 27, maxHeight: 45, maxWidth: 45),
         this.isDense = false,
         this.hintText = text,
         this.isCollapsed = true,

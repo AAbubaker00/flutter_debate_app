@@ -141,19 +141,19 @@
     },
     {
       "name": "firebase_core",
-      "rootUri": "file:///C:/Users/A%20Azi%20A/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_core-2.11.0",
+      "rootUri": "file:///C:/Users/A%20Azi%20A/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_core-2.13.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "firebase_core_platform_interface",
-      "rootUri": "file:///C:/Users/A%20Azi%20A/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_core_platform_interface-4.7.0",
+      "rootUri": "file:///C:/Users/A%20Azi%20A/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_core_platform_interface-4.8.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "firebase_core_web",
-      "rootUri": "file:///C:/Users/A%20Azi%20A/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_core_web-2.4.0",
+      "rootUri": "file:///C:/Users/A%20Azi%20A/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_core_web-2.5.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -578,7 +578,7 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2023-05-21T10:05:23.121758Z",
+  "generated": "2023-05-30T21:45:33.069188Z",
   "generator": "pub",
   "generatorVersion": "2.19.6"
 }

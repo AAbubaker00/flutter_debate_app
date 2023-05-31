@@ -1,15 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:debate/models/topic/topics.dart';
 import 'package:debate/services/database/database.dart';
-import 'package:debate/shared/Custome_Widgets/loading/loading.dart';
-import 'package:debate/shared/printFunctions/custom_Print_Functions.dart';
 import 'package:debate/shared/themes/themes.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SelectTopicsPage extends StatefulWidget {
-  final QuerySnapshot feedResult;
-  final QuerySnapshot topicsFollowingResult;
+  final QuerySnapshot feedResult, topicsFollowingResult;
 
   const SelectTopicsPage({super.key, required this.feedResult, required this.topicsFollowingResult});
 
